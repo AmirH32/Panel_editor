@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery panel page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top">
+        <h1>Let's Have Fun!</h1>
+        <input id="content" value="Enter..." />
+        <div>
+            <button class="panel-button" data-panel="panel1">Add to panel 1</button>
+            <button class="panel-button" data-panel="panel2">Add to panel 2</button>
+            <button class="panel-button" data-panel="panel3">Add to panel 3</button>
+            <button class="panel-button" data-panel="panel4">Add to panel 4</button>
+        </div>
+    </div>
+<div class="row">   
+    <div class="col-xs-3">
+        <div id="panel1" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel1
+            </div>
+            <div class="panel-body">
+                content
+            </div>
+        </div>
+        <div id="panel2" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel2
+            </div>
+            <div class="panel-body">
+                content
+            </div>
+        </div>
+        <div id="panel3" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel3
+            </div>
+            <div class="panel-body">
+                content
+            </div>
+        </div>
+        <div id="panel4" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel4
+            </div>
+            <div class="panel-body">
+                content
+            </div>
+        </div>
+    </div>
+</div> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(function(){
+        let text = ""
+        let input = $("#content")
+        // grabs the input using jquery
+        
+        input.click(function(){
+            text = document.getElementById('content')
+            text.value = "Enter...";
+            text.setSelectionRange(0, text.value.length);
+            // sets the inputs value to "Enter..." each time the input is clicked as well as highlighting the input
+        });
+
+        input.blur(function(){
+           text = $(this).val()
+           // sets text to the value attribute of the input element when clicking outside of the input
+        });
+
+        input.keypress(function(){
+            if (event.which === 13){
+                text = $(this).val();
+            }else{
+                return;
+            }
+            // if enter is inputted while in the input element, text is set to the value attribut of input otherwise if another key is inputted nothing happens
+        });
+
+        $('.panel-button').on('click', function(){
+            let panelId = $(this).attr('data-panel');
+            // panelId is set to the value that is inside the button's data-panel attribute
+            $('#'+panelId).slideUp(300).slideDown(300);
+            // The panel that has the Id of the button's data-panel attribute slides up and down
+            setTimeout(addText, 300);
+            function addText(){
+                $('#'+panelId+' .panel-body').html(text); 
+            // The text within the specified panel is changed to the text that was saved from the input element after 300 miliseconds, which is when the panel slides up - creating a smooth transition
+            }  
+        });
+    });
+</script>
+</body>
+
+</html>
