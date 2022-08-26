@@ -1,0 +1,98 @@
+body{
+    font-family:sans-serif;
+}
+
+h1{
+    padding-top: 50px;
+    margin: 0%;
+}
+
+input{
+    height: 36px;
+    margin: 10px auto;
+    background-image: url("pencil.png");
+    background-position: 0px -2px;
+    background-repeat: no-repeat;
+    background-size:33px;
+    font-size: 15px;
+    width: 100px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    padding-left: 35px;
+    transition: width 0.4s ease-in-out;
+    /* Adds a pencil image to the search bar as well as transition animation for when it is focused on */
+}
+
+input:focus{
+    width:30%
+    /* When the input is focused on, it's width becomes 30% of the screen */
+}
+
+.top{
+    background-color:#e7e7e7;
+    text-align: center;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Anything within the div container with the "top" class is displayed in a column format */
+}
+
+button{
+    height: 35px;
+    min-width: 60px;
+    border-style: solid;
+    background: #ACACAC;
+    background: linear-gradient(to bottom, #ACACAC 0%, #DADADA 42%, #FFFFFF 100%);
+    cursor: pointer;
+    transition-duration: 0.6s;
+    /* the button has a gradient background colour as well as a transition duration for its hover and click animations */
+}
+
+button:active {
+    border-style:groove;
+    border-color: #000000;
+    /* if the button is clicked the border becomes black and groove */
+}
+
+button:hover{
+    background-image: linear-gradient(to bottom, #b8b8b8 0%, #7a7b7c 51%, #494949 100%);
+    color: white;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 20px 0 rgba(0, 0, 0, 0.19);;
+    transform: translateY(4px);
+    /* When hovered over the button changes gradient colours and moves down to indicate it is being hovered over */
+}
+
+.col-xs-3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    justify-content: center;
+    /* The panels are displayed in a row at the center of the page */
+}
+
+.panel{
+    text-align: center;
+    width: 120px;
+    word-wrap: break-word;
+    margin: 0 20px;
+    border-color: #0039a6;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    /* The text is aligned at the center and breaks line when it hits the limit width of its container which is panel */
+}
+
+.panel-heading{
+    color: white;
+    background-color: #0039a6;
+    height: 30px;
+    line-height: 30px;
+}
+
+.panel-body{
+    min-height: 40px;
+}
